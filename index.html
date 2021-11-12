@@ -1,18 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Your Page Title</title>
+    <title>Test</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Amit Kapoor" />
-    <meta name="description" content="IXD 2020 Projects" />
+    <meta name="Kartikeya" content="Test webpage" />
+    <meta name="First Website" content="Learning to build website"/>
     <meta property="og:title" content="IXD 2020 Project" />
     <meta property="og:description" content="Brief description" />
     <meta property="og:image" content="/some-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image:alt" content="image description" />
 
-    <link href="styles.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
@@ -21,23 +22,39 @@
   </head>
 
   <body>
-    <main>
-      <h1>IXD 2020 Projects</h1>
+    <h1>IXD 2020 Projects</h1>
 
-      <h2>Static Vis Image</h2>
-      <object type="image/svg+xml" data="visualization.svg"></object>
-      <img src="Viz.svg" />
+    <h2>Static Viz</h2> 
+    <img src="/viz.png" />
 
-      <h2>Simple Vis Embed</h2>
-      <div id="vis"></div>
-
-      <h2>Vis with combined Spec & Data</h2>
-      <div id="vis2"></div>
-
-      <h2>Vis with seperate Spec & Data</h2>
-      <div id="vis3"></div>
-    </main>
+    <h2>Interactive Viz</h2>
+    <div id="vis"></div>
 
     <script src="script.js"></script>
+    <script type="text/javascript">
+      var yourVlSpec = {
+        $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+        description: 'A simple bar chart with embedded data.',
+        data: {
+          values: [
+            { a: 'A', b: 28 },
+            { a: 'B', b: 55 },
+            { a: 'C', b: 43 },
+            { a: 'D', b: 91 },
+            { a: 'E', b: 81 },
+            { a: 'F', b: 53 },
+            { a: 'G', b: 19 },
+            { a: 'H', b: 87 },
+            { a: 'I', b: 52 },
+          ],
+        },
+        mark: 'bar',
+        encoding: {
+          x: { field: 'a', type: 'ordinal' },
+          y: { field: 'b', type: 'quantitative' },
+        },
+      };
+      vegaEmbed('#vis', yourVlSpec);
+    </script>
   </body>
 </html>
